@@ -21,23 +21,30 @@ public class SIS {
 
         double s_prim;
 
-        double i_prim = 0;
+        double i_prim;
+        
+        double blirsjuka_prim;
+        
+        double i_tot = 0;
 
 
         for (int x = 1; x <= dagar; x++) {
             s_prim = ((-b) * i * s)/n + y*i;
+            
+            blirsjuka_prim = ((b) * i * s)/n;
 
             i_prim = ((double)(b * i * s))/n - (y * i);
 
 
             s = (s + s_prim);
             i = (i + i_prim);
+            i_tot = (i_tot + blirsjuka_prim);
 
             System.out.println("Utskrift---------------------- " + "DAG " + x);
             System.out.println("S': " + s_prim);
             System.out.println("I': " + i_prim);
 
-            System.out.println(" S: " + s + " I: " + i);
+            System.out.println("S: " + s + " I: " + i + " I Totalt: " + i_tot);
             System.out.println();
         }
     }
