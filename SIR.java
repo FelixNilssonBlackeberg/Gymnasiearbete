@@ -26,6 +26,7 @@ public class SIR {
         double i_prim = 0;
 
         double r_okning;
+        
 
         for (int x = 1; x <= dagar; x++) {
             s_minskning = ((-b) * i * s)/n;
@@ -43,7 +44,7 @@ public class SIR {
             System.out.println("I': " + i_prim);
             System.out.println("R': " + r_okning);
 
-            System.out.println(" S: " + s + " I: " + i + " R: " + r);
+            System.out.println(" S: " + s + " I: " + i + " R: " + r + " I Totalt: " + (n-s));
             System.out.println();
         }
     }
