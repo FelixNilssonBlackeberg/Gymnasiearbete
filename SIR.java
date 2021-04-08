@@ -5,7 +5,7 @@ public class SIR {
 
     public static void main(String[] args) {
         //Startvärden
-        Scanner sc = new Scanner(System.in);
+        /*Scanner sc = new Scanner(System.in);
         System.out.print("Skriv S(0): ");
         double s = sc.nextDouble();
         System.out.print("Skriv I(0): ");
@@ -18,7 +18,15 @@ public class SIR {
         double y = sc.nextDouble();
         double n = s + i + r;
         System.out.print("Skriv antal dagar du vill kolla: ");
-        int dagar = sc.nextInt();
+        int dagar = sc.nextInt();*/
+        
+        double s = 2000000;
+        double i = 5;
+        double r = 0;
+        double b = 0.4167;
+        double y = 0.16666667;
+        double n = s + i + r;
+        int dagar = 100;
         //-------------
 
         double s_minskning;
