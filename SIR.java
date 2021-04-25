@@ -20,13 +20,13 @@ public class SIR {
         System.out.print("Skriv antal dagar du vill kolla: ");
         int dagar = sc.nextInt();*/
         
-        double s = 2000000;
-        double i = 5;
+        double s = 2383265;
+        double i = 4;
         double r = 0;
-        double b = 0.4167;
-        double y = 0.16666667;
+        double b = 0.415;
+        double y = 0.143;
         double n = s + i + r;
-        int dagar = 100;
+        int dagar = 70;
         //-------------
 
         double s_minskning;
@@ -52,7 +52,7 @@ public class SIR {
             System.out.println("I': " + i_prim);
             System.out.println("R': " + r_okning);
 
-            System.out.println("S: " + s + " I: " + i + " R: " + r + " I Totalt: " + (n-s));
+            System.out.println("S: " + s + " I: " + i + " R: " + r + " I Totalt: " + (n-s) + " Döda: " + (r*0.006));
             System.out.println();
         }
     }
