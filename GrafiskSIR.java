@@ -16,6 +16,7 @@ public class GrafiskSIR extends Application {
         final NumberAxis yAxis = new NumberAxis();
         
         xAxis.setLabel("Antal dagar");
+        yAxis.setLabel("Individer");
         
         //Creating the chart
         final LineChart<Number, Number> lineChart = new LineChart<Number, Number>(xAxis, yAxis);
@@ -23,10 +24,10 @@ public class GrafiskSIR extends Application {
         lineChart.setTitle("Coronaviruset, 2020");
         lineChart.setCreateSymbols(false); //Lite störande
         yAxis.setAutoRanging(false);
-        //yAxis.setUpperBound(2500000);
-        //yAxis.setTickUnit(100000);
-        yAxis.setUpperBound(100000);
-        yAxis.setTickUnit(10000);
+        yAxis.setUpperBound(2500000);
+        yAxis.setTickUnit(100000);
+        //yAxis.setUpperBound(100000);
+        //yAxis.setTickUnit(10000);
         
         //Defining a series
         XYChart.Series series = new XYChart.Series();
@@ -74,6 +75,7 @@ public class GrafiskSIR extends Application {
         }
 
         Scene scene = new Scene(lineChart, 800, 600);
+        //Scene scene = new Scene(lineChart, 1200, 900);
         lineChart.getData().addAll(series, series1, series2, series3);
 
         primaryStage.setTitle("Smittspridningmodeller");
