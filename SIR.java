@@ -21,7 +21,7 @@ public class SIR {
         int dagar = sc.nextInt();*/
         
         double s = 2383265;
-        double i = 4;
+        double i = 40;
         double r = 0;
         double b = 0.415;
         double y = 0.143;
