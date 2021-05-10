@@ -18,12 +18,12 @@ public class SIS {
         System.out.print("Skriv antal dagar du vill kolla: ");
         int dagar = sc.nextInt();*/
         
-        double s = 2000000;
-        double i = 5;
-        double b = 0.4167;
-        double y = 0.166666667;
+        double s = 2383265;
+        double i = 4;
+        double b = 0.415;
+        double y = 0.143;
         double n = s + i;
-        int dagar = 100;
+        int dagar = 70;
         //-------------
 
         double s_prim;
@@ -34,6 +34,9 @@ public class SIS {
         
         double i_tot = 0;
 
+        double dör_prim = 0;
+        
+        double döda = 0;
 
         for (int x = 1; x <= dagar; x++) {
             s_prim = ((-b) * i * s)/n + y*i;
@@ -41,17 +44,20 @@ public class SIS {
             blirsjuka_prim = ((b) * i * s)/n;
 
             i_prim = ((double)(b * i * s))/n - (y * i);
+            
+            dör_prim = (y*i) * 0.006;
 
 
-            s = (s + s_prim);
+            s = (s + s_prim - dör_prim);
             i = (i + i_prim);
             i_tot = (i_tot + blirsjuka_prim);
+            döda = döda + dör_prim;
 
             System.out.println("Utskrift---------------------- " + "DAG " + x);
             System.out.println("S': " + s_prim);
             System.out.println("I': " + i_prim);
 
-            System.out.println("S: " + s + " I: " + i + " I Totalt: " + i_tot);
+            System.out.println("S: " + s + " I: " + i + " I Totalt: " + i_tot + " Döda: " + döda);
             System.out.println();
         }
     }
