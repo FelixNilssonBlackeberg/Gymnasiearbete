@@ -15,6 +15,7 @@ public class GrafiskSEIR extends Application {
         final NumberAxis yAxis = new NumberAxis();
         
         xAxis.setLabel("Antal dagar");
+        yAxis.setLabel("Individer");
         
         //Creating the chart
         final LineChart<Number, Number> lineChart = new LineChart<Number, Number>(xAxis, yAxis);
@@ -24,6 +25,8 @@ public class GrafiskSEIR extends Application {
         yAxis.setAutoRanging(false);
         yAxis.setUpperBound(2500000);
         yAxis.setTickUnit(100000);
+        //yAxis.setUpperBound(100000);
+        //yAxis.setTickUnit(10000);
         
         //Defining a series
         XYChart.Series series = new XYChart.Series();
@@ -38,9 +41,13 @@ public class GrafiskSEIR extends Application {
         XYChart.Series series3 = new XYChart.Series();
         series3.setName("E(t)");
         
+        XYChart.Series series4 = new XYChart.Series();
+        series4.setName("Dödsfall");
+        
+        
         //Startvärden
-        double s = 2500000;
-        double e = 10;
+        double s = 2383257;
+        double e = 8;
         double i = 4;
         double r = 0;
         double n = s + e + i + r;
@@ -48,13 +55,13 @@ public class GrafiskSEIR extends Application {
         double i_prim;
         double r_ökning;
         double e_prim;
-        double sigma = 0.2;
-        double b = 0.28125;
-        double y = 0.125;
+        double sigma = 0.33;
+        double b = 0.415;
+        double y = 0.143;
         
         //Populating the series with data
         //S(t)
-        for(int x = 0; x < 240; x++) //Ändra dagar
+        for(int x = 0; x < 150; x++) //Ändra dagar
         {
             s_minskning = ((-b) * i * s)/n;
             e_prim = ((double)(b * i * s))/n - (sigma * e);
@@ -73,10 +80,13 @@ public class GrafiskSEIR extends Application {
             series2.getData().add(new XYChart.Data(x, r));
             
             series3.getData().add(new XYChart.Data(x, e));
+            
+            series4.getData().add(new XYChart.Data(x, (r*0.006)));
+                    
         }
 
         Scene scene = new Scene(lineChart, 800, 600);
-        lineChart.getData().addAll(series, series1, series2, series3);
+        lineChart.getData().addAll(series, series1, series2, series3,series4);
 
         primaryStage.setTitle("Smittspridningmodeller");
         primaryStage.setScene(scene);
